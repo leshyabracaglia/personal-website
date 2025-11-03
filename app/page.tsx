@@ -14,24 +14,8 @@ export default function Home() {
         <Navigation />
         <p className="text-lg  max-w-2xl">
           I&apos;m a software engineer with a passion for building web
-          applications. I love creating elegant solutions to complex problems
-          and learning new technologies.
+          applications.
         </p>
-
-        <div className="flex flex-col gap-3 ">
-          <div className="flex items-center gap-2">
-            <span className="text-green-400">▹</span>
-            <span>Building modern web experiences</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-green-400">▹</span>
-            <span>Exploring full-stack development</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-green-400">▹</span>
-            <span>Always learning something new</span>
-          </div>
-        </div>
       </main>
     </div>
   );

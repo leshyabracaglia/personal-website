@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navigation from "./components/Navigation";
+const Marquee = "marquee" as unknown as React.ElementType;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,10 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#001a00] text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#c8ccc0] font-ibm-plex-mono`}
       >
-        <marquee>
-          <p className="text-white">
+        <Marquee>
+          <p className="text-black font-ibm-plex-mono">
             {`
             _________\n
     / ======= \
@@ -45,7 +45,7 @@ export default function RootLayout({
 
             "`}
           </p>
-        </marquee>
+        </Marquee>
         <div>{children}</div>
       </body>
     </html>

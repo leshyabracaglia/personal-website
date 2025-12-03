@@ -29,21 +29,20 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#c8ccc0] font-ibm-plex-mono`}
       >
         <Marquee>
-          <p className="text-black font-ibm-plex-mono">
-            {`
-            _________\n
-    / ======= \
-   / __________\
-  | ___________ |
-  | | -       | |
-  | |         | |
-  | |_________| |________________________
-  \=____________/   Leshya Bracaglia      )
-  / """"""""""" \                       /
- / ::::::::::::: \                  =D-'
-(_________________)
-
-            "`}
+          <p className="text-black font-ibm-plex-mono whitespace-pre">
+            {String.raw`
+            _________
+           / ======= \
+          / __________\
+         | ___________ |
+         | | -       | |
+         | |         | |
+         | |_________| |________________________
+         \=____________/   Leshya Bracaglia      )
+         / """"""""""" \                        /
+        / ::::::::::::: \                   =D-'
+       (_________________)
+      `}
           </p>
         </Marquee>
         <div>{children}</div>

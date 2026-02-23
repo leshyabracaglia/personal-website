@@ -2,22 +2,18 @@ import Navigation from "../components/Navigation";
 
 const PROJECTS = [
   {
-    title: "Project One",
+    title: "Little Alchemy Companion",
     description:
-      "A description of your first project. Add details about what technologies you used and what problems it solves.",
-    technologies: ["React", "Next.js", "TypeScript"],
+      "A React Native mobile app serving as a complete reference guide for Little Alchemy 2 — featuring a searchable catalog of 720+ elements, crafting recipe lookup, and reverse ingredient search. Includes an automated web scraper that pulls element data and icons directly from the game's wiki to keep the database current.",
+    technologies: ["React Native", "Expo", "TypeScript", "Expo Router", "Claude", "Cursor"],
+    github: "https://github.com/leshyabracaglia/little-alchemy-companion",
   },
   {
-    title: "Project Two",
+    title: "1000 Rejections",
     description:
-      "A description of your second project. Highlight the key features and your role in building it.",
-    technologies: ["Node.js", "MongoDB"],
-  },
-  {
-    title: "Project Three",
-    description:
-      "A description of your third project. Mention any challenges you overcame or interesting learnings.",
-    technologies: ["Python", "FastAPI"],
+      "A mobile app that gamifies rejection exposure therapy — users log rejections with titles, descriptions, dates, and photos while tracking progress toward 1,000 total rejections. Built with Supabase for auth and data, comprehensive unit and E2E testing via Maestro, and a CI/CD pipeline via EAS Build. Reframes failure as forward momentum.",
+    technologies: ["React Native", "Expo", "TypeScript", "Supabase", "Maestro", "EAS", "Claude", "Cursor"],
+    github: "https://github.com/leshyabracaglia/1000Rejections",
   },
 ];
 
@@ -25,14 +21,26 @@ function ProjectCard({
   title,
   description,
   technologies,
+  github,
 }: {
   title: string;
   description: string;
   technologies: string[];
+  github: string;
 }) {
   return (
     <div className="border border-green-900 rounded-lg p-6 hover:border-green-600 transition-colors">
-      <h2 className="text-2xl font-semibold text-black mb-2">{title}</h2>
+      <div className="flex items-start justify-between mb-2">
+        <h2 className="text-2xl font-semibold text-black">{title}</h2>
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-green-800 hover:text-green-600 text-sm underline underline-offset-2 ml-4 shrink-0"
+        >
+          GitHub →
+        </a>
+      </div>
       <p className="text-black mb-3">{description}</p>
       <div className="flex gap-2 flex-wrap">
         {technologies.map((technology) => (
@@ -63,6 +71,7 @@ export default function Projects() {
               title={project.title}
               description={project.description}
               technologies={project.technologies}
+              github={project.github}
             />
           ))}
         </div>

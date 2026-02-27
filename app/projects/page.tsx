@@ -2,6 +2,13 @@ import Navigation from "../components/Navigation";
 
 const PROJECTS = [
   {
+    title: "Cookie Refuser",
+    description:
+      "A cross-platform browser extension that automatically denies all cookie consent banners. Supports Chrome, Firefox, Edge, and Safari (including iOS/iPadOS). Uses a three-tier detection strategy — known platform selectors, banner container scanning, and a broad fallback — along with MutationObserver for late-loading popups. Covers major consent platforms (OneTrust, Cookiebot, Quantcast, Didomi, and more) across 9 languages. Built with Manifest V3.",
+    technologies: ["JavaScript", "Manifest V3", "Safari Web Extension", "SwiftUI", "Xcode"],
+    github: "https://github.com/leshyabracaglia/Cookie-refuser",
+  },
+  {
     title: "Little Alchemy Companion",
     description:
       "A React Native mobile app serving as a complete reference guide for Little Alchemy 2 — featuring a searchable catalog of 720+ elements, crafting recipe lookup, and reverse ingredient search. Includes an automated web scraper that pulls element data and icons directly from the game's wiki to keep the database current.",

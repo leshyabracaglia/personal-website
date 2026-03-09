@@ -36,26 +36,28 @@ function ProjectCard({
   github: string;
 }) {
   return (
-    <div className="border border-green-900 rounded-lg p-6 hover:border-green-600 transition-colors">
-      <div className="flex items-start justify-between mb-2">
-        <h2 className="text-2xl font-semibold text-black">{title}</h2>
+    <div className="border border-[#1a4a1a] p-6 hover:border-terminal/50 transition-colors">
+      <div className="border-b border-[#1a4a1a] pb-2 mb-4 flex items-center justify-between">
+        <span className="text-terminal font-semibold">
+          ┌─[ {title} ]
+        </span>
         <a
           href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-green-800 hover:text-green-600 text-sm underline underline-offset-2 ml-4 shrink-0"
+          className="text-terminal/50 hover:text-terminal text-sm transition-colors"
         >
-          GitHub →
+          [github →]
         </a>
       </div>
-      <p className="text-black mb-3">{description}</p>
+      <p className="text-terminal/80 mb-4 text-sm leading-relaxed">{description}</p>
       <div className="flex gap-2 flex-wrap">
         {technologies.map((technology) => (
           <span
             key={technology}
-            className="px-3 py-1 bg-green-950 text-white rounded-full text-sm"
+            className="text-terminal/60 text-xs border border-[#1a4a1a] px-2 py-0.5"
           >
-            {technology}
+            [{technology}]
           </span>
         ))}
       </div>
@@ -65,9 +67,19 @@ function ProjectCard({
 
 export default function Projects() {
   return (
-    <div className="flex min-h-screen items-center justify-center font-ibm-plex-mono">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-start justify-start gap-8 py-32 px-16">
-        <h1 className="text-4xl font-bold text-black">Projects</h1>
+    <div className="flex justify-center min-h-screen bg-[#0d0d0d] font-ibm-plex-mono">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-start justify-start gap-8 py-8 px-8 sm:px-16 text-terminal">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <span className="text-terminal/60">leshya@macbook:~$</span>
+            <span>cd projects/</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-terminal/60">leshya@macbook:~/projects$</span>
+            <span>ls -la</span>
+          </div>
+          <h1 className="text-4xl font-bold pl-4">Projects</h1>
+        </div>
 
         <Navigation />
 
@@ -82,6 +94,7 @@ export default function Projects() {
             />
           ))}
         </div>
+        <span className="cursor text-terminal">█</span>
       </main>
     </div>
   );

@@ -26,11 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#c8ccc0] font-ibm-plex-mono`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-[#0d0d0d] font-ibm-plex-mono`}
       >
-        <Marquee>
-          <p className="text-black font-ibm-plex-mono whitespace-pre">
-            {String.raw`
+        <div className="hidden sm:block">
+          <Marquee>
+            <p className="text-terminal font-ibm-plex-mono whitespace-pre">
+              {String.raw`
             _________
            / ======= \
           / __________\
@@ -43,8 +44,9 @@ export default function RootLayout({
         / ::::::::::::: \                   =D-'
        (_________________)
       `}
-          </p>
-        </Marquee>
+            </p>
+          </Marquee>
+        </div>
         <div>{children}</div>
       </body>
     </html>

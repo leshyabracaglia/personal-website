@@ -3,6 +3,15 @@ import Navigation from "../components/Navigation";
 
 const PROJECTS = [
   {
+    title: "Personal Website",
+    description:
+      "You are here 😊 A personal site to showcase my work and projects. Built with React and TypeScript, deployed on Vercel with analytics and automatic deployments on every push to main.",
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Vercel"],
+    github: "https://github.com/leshyabracaglia/personal-website",
+    links: [],
+    images: [],
+  },
+  {
     title: "Cookie Refuser",
     description:
       "Inspired by the annoyance of continuing to dismiss cookie banners, Cookie Refuser is a cross-platform browser extension that automatically denies all cookie consent banners. Supports Chrome, Firefox, and Safari. Uses a three-tier detection strategy — known platform selectors, banner container scanning, and a broad fallback — along with MutationObserver for late-loading popups. Covers major consent platforms (OneTrust, Cookiebot, Quantcast, Didomi, and more) across 9 languages. Built with Manifest V3. Published on the Chrome Web Store, Firefox Add-ons, and the App Store.",

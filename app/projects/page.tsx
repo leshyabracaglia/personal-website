@@ -52,6 +52,20 @@ const PROJECTS = [
     images: [],
   },
   {
+    title: "qtPI Token",
+    description:
+      "A mintable ERC-20 token (QTPI) built with Hardhat and OpenZeppelin, deployed on Ethereum's Sepolia testnet. Implements peer-to-peer transfers and admin minting on top of a 1 million token initial supply. Leverages OpenZeppelin's battle-tested contract libraries for security. The deployed contract is publicly verifiable on-chain and importable directly into MetaMask.",
+    technologies: ["Solidity", "JavaScript", "Hardhat", "OpenZeppelin", "Ethereum"],
+    github: "https://github.com/leshyabracaglia/smart-contract",
+    links: [
+      {
+        label: "Etherscan",
+        url: "https://sepolia.etherscan.io/address/0xcfB8035a88DE1b5fdc89242169c8c2f62c1656EE",
+      },
+    ],
+    images: [],
+  },
+  {
     title: "Little Alchemy Companion",
     description:
       "A React Native mobile app serving as a complete reference guide for Little Alchemy 2 — featuring a searchable catalog of 720+ elements, crafting recipe lookup, and reverse ingredient search. Includes an automated web scraper that pulls element data and icons directly from the game's wiki to keep the database current.",

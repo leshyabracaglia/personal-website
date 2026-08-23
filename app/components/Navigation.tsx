@@ -9,15 +9,37 @@ const LINKS = [
   { href: "/contact", label: "contact" },
 ];
 
-export default function Navigation() {
+export default function Navigation({
+  cwd = "~",
+  variant = "cd",
+  upLevels = 1,
+}: {
+  cwd?: string;
+  variant?: "cd" | "list-parent";
+  upLevels?: number;
+}) {
   const pathname = usePathname();
+  const upPath = "../".repeat(upLevels);
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="text-terminal/60">leshya@macbook:~$</span>
-        <span className="text-terminal">ls ./pages/</span>
-      </div>
+      {variant === "cd" ? (
+        <>
+          <div className="flex items-center gap-2">
+            <span className="text-terminal/60">leshya@macbook:{cwd}$</span>
+            <span className="text-terminal">cd pages/</span>
+          </div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-terminal/60">leshya@macbook:{cwd}/pages$</span>
+            <span className="text-terminal">ls</span>
+          </div>
+        </>
+      ) : (
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-terminal/60">leshya@macbook:{cwd}$</span>
+          <span className="text-terminal">ls {upPath}</span>
+        </div>
+      )}
       {LINKS.map((link) => {
         const isActive = pathname === link.href;
         return (
@@ -31,7 +53,7 @@ export default function Navigation() {
             }`}
           >
             <span>{isActive ? ">" : " "}</span>
-            <span>./{link.label}/</span>
+            <span>{link.label}</span>
           </Link>
         );
       })}

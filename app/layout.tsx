@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { SITE_NAME, SITE_URL } from "./lib/site";
 const Marquee = "marquee" as unknown as React.ElementType;
 
 const geistSans = Geist({
@@ -15,8 +16,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Leshya Bracaglia - Software Engineer",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} - Software Engineer`,
+    template: `%s - ${SITE_NAME}`,
+  },
   description: "Personal website and portfolio of Leshya Bracaglia",
+  openGraph: {
+    siteName: SITE_NAME,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

@@ -24,17 +24,27 @@ export default function Contact() {
   return (
     <div className="flex justify-center min-h-screen bg-[#0d0d0d] font-ibm-plex-mono">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-start justify-start gap-8 py-8 px-8 sm:px-16 text-terminal">
+        <div className="flex items-center gap-2">
+          <span className="text-terminal/60">leshya@macbook:~/pages$</span>
+          <span>cd contact/</span>
+        </div>
+
+        <Navigation cwd="~/pages/contact" variant="list-parent" />
+
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">
-            <span className="text-terminal/60">leshya@macbook:~$</span>
-            <span>cat contact.txt</span>
+            <span className="text-terminal/60">leshya@macbook:~/pages/contact$</span>
+            <span>cat title.txt</span>
           </div>
           <h1 className="text-4xl font-bold pl-4">Contact</h1>
         </div>
 
-        <Navigation />
-
         <div className="flex flex-col gap-6 w-full">
+          <div className="flex items-center gap-2">
+            <span className="text-terminal/60">leshya@macbook:~/pages/contact$</span>
+            <span>ls -la</span>
+          </div>
+
           <p className="text-terminal/70 text-sm">
             # I&apos;d love to hear from you.<br />
             # Reach out through any of the following:

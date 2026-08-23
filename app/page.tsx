@@ -1,10 +1,14 @@
 import Navigation from "./components/Navigation";
+import { GithubIcon, LinkedinIcon } from "./components/icons/BrandIcons";
+import { getVisitorSummary } from "./lib/visitor";
 
-export default function Home() {
+export default async function Home() {
+  const { loginLine } = await getVisitorSummary();
+
   return (
     <div className="flex justify-center min-h-screen bg-[#0d0d0d] font-ibm-plex-mono">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-start gap-8 px-8 sm:px-16 py-8 text-terminal">
-        <p className="text-terminal/40 text-sm">Last login: Mon Mar  9 2026 on ttys001</p>
+        <p className="text-terminal/40 text-sm">{loginLine}</p>
 
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
@@ -17,21 +21,39 @@ export default function Home() {
             <span className="text-terminal/60">leshya@macbook:~$</span>
             <span>cat title.txt</span>
           </div>
-          <h2 className="text-xl pl-4">Software Engineer</h2>
+          <h2 className="text-xl pl-4">Senior Software Engineer</h2>
         </div>
-
-        <Navigation />
 
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
             <span className="text-terminal/60">leshya@macbook:~$</span>
-            <span>cat bio.txt</span>
+            <span>cat links.txt</span>
           </div>
-          <p className="text-lg max-w-2xl pl-4">
-            I&apos;m a software engineer with a passion for building web applications.
-          </p>
-          <span className="cursor text-terminal">█</span>
+          <div className="flex flex-col gap-2 pl-4">
+            <a
+              href="https://github.com/leshyabracaglia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-terminal/70 hover:text-terminal transition-colors text-sm w-fit"
+            >
+              <GithubIcon />
+              <span>github.com/leshyabracaglia</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/leshya-bracaglia/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-terminal/70 hover:text-terminal transition-colors text-sm w-fit"
+            >
+              <LinkedinIcon />
+              <span>linkedin.com/in/leshya-bracaglia</span>
+            </a>
+          </div>
         </div>
+
+        <Navigation />
+
+        <span className="cursor text-terminal">█</span>
       </main>
     </div>
   );

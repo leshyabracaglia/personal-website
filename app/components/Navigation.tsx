@@ -25,18 +25,18 @@ export default function Navigation({
     <div className="flex flex-col gap-1">
       {variant === "cd" ? (
         <>
-          <div className="flex items-center gap-2">
-            <span className="text-terminal/60">leshya@macbook:{cwd}$</span>
+          <div className="flex flex-wrap items-center gap-x-2">
+            <span className="text-terminal/60 break-all"><span className="hidden sm:inline">leshya@macbook:</span>{cwd}$</span>
             <span className="text-terminal">cd pages/</span>
           </div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-terminal/60">leshya@macbook:{cwd}/pages$</span>
+          <div className="flex flex-wrap items-center gap-x-2 mb-1">
+            <span className="text-terminal/60 break-all"><span className="hidden sm:inline">leshya@macbook:</span>{cwd}/pages$</span>
             <span className="text-terminal">ls</span>
           </div>
         </>
       ) : (
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-terminal/60">leshya@macbook:{cwd}$</span>
+        <div className="flex flex-wrap items-center gap-x-2 mb-1">
+          <span className="text-terminal/60 break-all"><span className="hidden sm:inline">leshya@macbook:</span>{cwd}$</span>
           <span className="text-terminal">ls {upPath}</span>
         </div>
       )}

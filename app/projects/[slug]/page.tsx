@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navigation from "../../components/Navigation";
+import UserCount from "../../components/UserCount";
 import { PROJECTS, getProject } from "../../lib/projects";
 import { SITE_URL } from "../../lib/site";
 
@@ -76,9 +77,9 @@ export default async function ProjectDetail({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-start justify-start gap-8 py-8 px-8 sm:px-16 text-terminal">
-        <div className="flex items-center gap-2">
-          <span className="text-terminal/60">leshya@macbook:~/pages/projects$</span>
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-start justify-start gap-8 py-6 sm:py-8 px-4 sm:px-16 text-terminal">
+        <div className="flex flex-wrap items-center gap-x-2">
+          <span className="text-terminal/60 break-all"><span className="hidden sm:inline">leshya@macbook:</span>~/pages/projects$</span>
           <span>cd {project.slug}/</span>
         </div>
 
@@ -89,19 +90,19 @@ export default async function ProjectDetail({
         />
 
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-terminal/60">
-              leshya@macbook:~/pages/projects/{project.slug}$
+          <div className="flex flex-wrap items-center gap-x-2">
+            <span className="text-terminal/60 break-all">
+              <span className="hidden sm:inline">leshya@macbook:</span>~/pages/projects/{project.slug}$
             </span>
             <span>cat title.txt</span>
           </div>
-          <h1 className="text-4xl font-bold pl-4">{project.title}</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold pl-4 break-words">{project.title}</h1>
         </div>
 
         <div className="flex flex-col gap-3 w-full">
-          <div className="flex items-center gap-2">
-            <span className="text-terminal/60">
-              leshya@macbook:~/pages/projects/{project.slug}$
+          <div className="flex flex-wrap items-center gap-x-2">
+            <span className="text-terminal/60 break-all">
+              <span className="hidden sm:inline">leshya@macbook:</span>~/pages/projects/{project.slug}$
             </span>
             <span>ls</span>
           </div>
@@ -137,6 +138,8 @@ export default async function ProjectDetail({
             </div>
           )}
 
+          <UserCount links={project.links} />
+
           <div className="flex gap-2 flex-wrap">
             {project.technologies.map((technology) => (
               <span
@@ -151,17 +154,15 @@ export default async function ProjectDetail({
           {project.images.length > 0 && (
             <div className="flex gap-3 overflow-x-auto mb-4 pb-1 mt-4">
               {project.images.map((src, i) => (
-                <div
+                <Image
                   key={i}
-                  className="relative flex-shrink-0 w-full max-w-md h-56 border border-[#1a4a1a] overflow-hidden"
-                >
-                  <Image
-                    src={src}
-                    alt={`${project.title} screenshot ${i + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                  src={src}
+                  alt={`${project.title} screenshot ${i + 1}`}
+                  width={0}
+                  height={0}
+                  sizes="(max-width: 640px) 100vw, 640px"
+                  className="flex-shrink-0 h-48 sm:h-72 w-auto max-w-full object-contain border border-[#1a4a1a]"
+                />
               ))}
             </div>
           )}

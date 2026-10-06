@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import UserCount from "../components/UserCount";
 import Navigation from "../components/Navigation";
 import { PROJECTS, type Project } from "../lib/projects";
 import { SITE_URL } from "../lib/site";
@@ -30,7 +31,7 @@ function ProjectCard({
 }: Project) {
   return (
     <div className="border border-[#1a4a1a] p-6 hover:border-terminal/50 transition-colors">
-      <div className="border-b border-[#1a4a1a] pb-2 mb-4 flex items-center justify-between">
+      <div className="border-b border-[#1a4a1a] pb-2 mb-4 flex items-center justify-between flex-wrap gap-2">
         <Link
           href={`/projects/${slug}`}
           className="text-terminal font-semibold hover:underline"
@@ -63,6 +64,8 @@ function ProjectCard({
         </div>
       )}
 
+      <UserCount links={links} />
+
       <div className="flex gap-2 flex-wrap">
         {technologies.map((technology) => (
           <span
@@ -77,17 +80,15 @@ function ProjectCard({
       {images.length > 0 && (
         <div className="flex gap-3 overflow-x-auto mb-4 pb-1 mt-4">
           {images.map((src, i) => (
-            <div
+            <Image
               key={i}
-              className="relative flex-shrink-0 w-48 h-32 border border-[#1a4a1a] overflow-hidden"
-            >
-              <Image
-                src={src}
-                alt={`${title} screenshot ${i + 1}`}
-                fill
-                className="object-cover"
-              />
-            </div>
+              src={src}
+              alt={`${title} screenshot ${i + 1}`}
+              width={0}
+              height={0}
+              sizes="320px"
+              className="flex-shrink-0 h-28 sm:h-32 w-auto border border-[#1a4a1a]"
+            />
           ))}
         </div>
       )}
@@ -109,25 +110,25 @@ function ProjectCard({
 export default function Projects() {
   return (
     <div className="flex justify-center min-h-screen bg-[#0d0d0d] font-ibm-plex-mono">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-start justify-start gap-8 py-8 px-8 sm:px-16 text-terminal">
-        <div className="flex items-center gap-2">
-          <span className="text-terminal/60">leshya@macbook:~/pages$</span>
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-start justify-start gap-8 py-6 sm:py-8 px-4 sm:px-16 text-terminal">
+        <div className="flex flex-wrap items-center gap-x-2">
+          <span className="text-terminal/60 break-all"><span className="hidden sm:inline">leshya@macbook:</span>~/pages$</span>
           <span>cd projects/</span>
         </div>
 
         <Navigation cwd="~/pages/projects" variant="list-parent" />
 
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-terminal/60">leshya@macbook:~/pages/projects$</span>
+          <div className="flex flex-wrap items-center gap-x-2">
+            <span className="text-terminal/60 break-all"><span className="hidden sm:inline">leshya@macbook:</span>~/pages/projects$</span>
             <span>cat title.txt</span>
           </div>
-          <h1 className="text-4xl font-bold pl-4">Projects</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold pl-4 break-words">Projects</h1>
         </div>
 
         <div className="flex flex-col gap-6 w-full">
-          <div className="flex items-center gap-2">
-            <span className="text-terminal/60">leshya@macbook:~/pages/projects$</span>
+          <div className="flex flex-wrap items-center gap-x-2">
+            <span className="text-terminal/60 break-all"><span className="hidden sm:inline">leshya@macbook:</span>~/pages/projects$</span>
             <span>ls -la</span>
           </div>
 

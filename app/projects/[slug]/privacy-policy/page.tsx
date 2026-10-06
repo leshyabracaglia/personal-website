@@ -42,15 +42,15 @@ export default async function ProjectPrivacyPolicy({
 
   return (
     <div className="flex justify-center min-h-screen bg-[#0d0d0d] font-ibm-plex-mono">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-start justify-start gap-8 py-8 px-8 sm:px-16 text-terminal">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-start justify-start gap-8 py-6 sm:py-8 px-4 sm:px-16 text-terminal">
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-terminal/60">
-              leshya@macbook:~/pages/projects/{project.slug}$
+          <div className="flex flex-wrap items-center gap-x-2">
+            <span className="text-terminal/60 break-all">
+              <span className="hidden sm:inline">leshya@macbook:</span>~/pages/projects/{project.slug}$
             </span>
             <span>cat privacy-policy.txt</span>
           </div>
-          <h1 className="text-4xl font-bold pl-4">
+          <h1 className="text-3xl sm:text-4xl font-bold pl-4 break-words">
             {project.title} — Privacy Policy
           </h1>
         </div>

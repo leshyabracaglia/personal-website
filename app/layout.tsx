@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import ComputerIcon from "./components/ComputerIcon";
 import { SITE_NAME, SITE_URL } from "./lib/site";
-const Marquee = "marquee" as unknown as React.ElementType;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,25 +41,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-[#0d0d0d] font-ibm-plex-mono`}
       >
-        <div className="hidden sm:block">
-          <Marquee>
-            <p className="text-terminal font-ibm-plex-mono whitespace-pre">
-              {String.raw`
-            _________
-           / ======= \
-          / __________\
-         | ___________ |
-         | | -       | |
-         | |         | |
-         | |_________| |________________________
-         \=____________/   Leshya Bracaglia      )
-         / """"""""""" \                        /
-        / ::::::::::::: \                   =D-'
-       (_________________)
-      `}
-            </p>
-          </Marquee>
-        </div>
+        <ComputerIcon />
         <div>{children}</div>
         <Analytics />
       </body>

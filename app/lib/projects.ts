@@ -33,6 +33,185 @@ const CONTACT_EMAIL = "leshyabracaglia@gmail.com";
 
 export const PROJECTS: Project[] = [
   {
+    slug: "beatboxd",
+    title: "Beatboxd",
+    tagline:
+      "Letterboxd for DJ sets: log the DJs you've seen live, rate and review their sets, and follow friends to see theirs in your feed.",
+    description:
+      "Letterboxd for DJ sets — log the DJs you've seen live, rate them, write reviews, and follow other users to see their sets in your feed. Events link to real venues via Google Places, with event series, full-night lineups, and whole-night reviews. Built as a single Expo codebase for iOS and web, backed by a Go REST API with hand-written SQL on Postgres, Clerk auth, and an OpenAPI spec that generates the client's TypeScript types (enforced in CI). Infrastructure on AWS (EC2 + RDS) is provisioned with Terraform; the web app is deployed on Vercel.",
+    technologies: [
+      "Expo",
+      "React Native",
+      "TypeScript",
+      "NativeWind",
+      "Go",
+      "PostgreSQL",
+      "AWS",
+      "Terraform",
+      "Clerk",
+      "Vercel",
+    ],
+    github: "https://github.com/leshyabracaglia/dj-letterboxed",
+    links: [
+      {
+        label: "Website",
+        url: "https://www.beatboxd.com",
+      },
+    ],
+    images: [],
+    privacyPolicy: {
+      lastUpdated: LAST_UPDATED,
+      intro: [
+        "Beatboxd is a social app for logging and reviewing DJ sets. This page explains what's collected and why.",
+      ],
+      sections: [
+        {
+          heading: "What's collected",
+          body: [
+            "Creating an account collects your email address and username via Clerk, the authentication provider. Using the app stores what you post — reviews, ratings, comments, likes, the events and venues you log, and who you follow.",
+          ],
+        },
+        {
+          heading: "What's public",
+          body: [
+            "Beatboxd is social by design: your profile, reviews, ratings, and comments are visible to other users, and your reviews appear in your followers' feeds.",
+          ],
+        },
+        {
+          heading: "Third-party services",
+          body: [
+            "Your data isn't sold. It's shared only with the infrastructure that runs the app: Clerk (authentication), Amazon Web Services (API and database hosting), and Vercel (web hosting). Venue search is powered by Google Places, and DJ information may be looked up via Spotify.",
+          ],
+        },
+        {
+          heading: "Your control",
+          body: [
+            "Deleting your account removes your user record. For any other data requests, contact me directly.",
+          ],
+        },
+        {
+          heading: "Contact",
+          body: [`Questions? Reach me at ${CONTACT_EMAIL}.`],
+        },
+      ],
+    },
+    termsOfService: {
+      lastUpdated: LAST_UPDATED,
+      intro: [
+        "By creating an account or using Beatboxd, you agree to the following.",
+      ],
+      sections: [
+        {
+          heading: "Your content",
+          body: [
+            "You own the reviews and comments you post, and you're responsible for them. Don't post anything harassing, hateful, illegal, or that you don't have the rights to share. Content that breaks these rules may be removed, and accounts may be suspended.",
+          ],
+        },
+        {
+          heading: "As-is software",
+          body: [
+            "The app is provided \"as is,\" with no warranty of any kind, including around availability and data durability.",
+          ],
+        },
+        {
+          heading: "Not affiliated with Letterboxd",
+          body: [
+            "Beatboxd is an independent project and isn't affiliated with, endorsed by, or sponsored by Letterboxd.",
+          ],
+        },
+        {
+          heading: "Contact",
+          body: [`Questions about these terms? Reach me at ${CONTACT_EMAIL}.`],
+        },
+      ],
+    },
+  },
+  {
+    slug: "cookie-refuser",
+    title: "Cookie Refuser",
+    tagline:
+      "A cross-platform browser extension that automatically denies cookie consent banners on Chrome, Firefox, and Safari.",
+    description:
+      "Inspired by the annoyance of continuing to dismiss cookie banners, Cookie Refuser is a cross-platform browser extension that automatically denies all cookie consent banners. Supports Chrome, Firefox, and Safari. Uses a three-tier detection strategy — known platform selectors, banner container scanning, and a broad fallback — along with MutationObserver for late-loading popups. Covers major consent platforms (OneTrust, Cookiebot, Quantcast, Didomi, and more) across 9 languages. Built with Manifest V3. Published on the Chrome Web Store, Firefox Add-ons, and the App Store.",
+    technologies: ["JavaScript", "Manifest V3", "Xcode"],
+    github: "https://github.com/leshyabracaglia/Cookie-refuser",
+    links: [
+      {
+        label: "Chrome Extension",
+        url: "https://chromewebstore.google.com/detail/cookie-refuser/mcglfjkmfeliffphgmihihlgehcfbkmi",
+      },
+      {
+        label: "Firefox Extension",
+        url: "https://addons.mozilla.org/en-US/firefox/addon/cookies-refuser/",
+      },
+      {
+        label: "Safari Extension",
+        url: "https://apps.apple.com/us/app/cookie-refuser/id6760318624?mt=12",
+      },
+    ],
+    images: ["/projects/cookie-refuser-promotional-image.png"],
+    privacyPolicy: {
+      lastUpdated: LAST_UPDATED,
+      intro: [
+        "Cookie Refuser runs entirely inside your browser. It does not collect, transmit, or sell any personal data, browsing history, or the content of the pages you visit.",
+      ],
+      sections: [
+        {
+          heading: "What's stored locally",
+          body: [
+            "The extension keeps a couple of small pieces of state — whether it's enabled, and a count of banners it has denied — in your browser's local extension storage. That data stays on your device and is never sent anywhere.",
+          ],
+        },
+        {
+          heading: "Why it needs broad permissions",
+          body: [
+            "Cookie Refuser requests host permissions on the pages you visit so it can detect and click cookie-consent buttons as they appear. It only looks for consent-banner elements in the moment a page loads; it doesn't read, store, or transmit page content beyond that.",
+          ],
+        },
+        {
+          heading: "No analytics, no third parties",
+          body: [
+            "There are no analytics SDKs, trackers, or ad networks bundled with this extension.",
+          ],
+        },
+        {
+          heading: "Contact",
+          body: [`Questions? Reach me at ${CONTACT_EMAIL}.`],
+        },
+      ],
+    },
+    termsOfService: {
+      lastUpdated: LAST_UPDATED,
+      intro: [
+        "Cookie Refuser is free, open-source software released under the MIT License. By installing or using it, you agree to the following.",
+      ],
+      sections: [
+        {
+          heading: "As-is software",
+          body: [
+            "The extension is provided \"as is,\" without warranty of any kind. Cookie-consent platforms change their markup often, so denial isn't guaranteed to work on every site, every time.",
+          ],
+        },
+        {
+          heading: "Source and license",
+          body: [
+            "The full source code is public on GitHub under the MIT License, which also governs your rights to use, copy, modify, and redistribute it.",
+          ],
+        },
+        {
+          heading: "Store terms",
+          body: [
+            "If you install Cookie Refuser via the Chrome Web Store, Firefox Add-ons, or the App Store, that platform's own terms also apply.",
+          ],
+        },
+        {
+          heading: "Contact",
+          body: [`Questions about these terms? Reach me at ${CONTACT_EMAIL}.`],
+        },
+      ],
+    },
+  },
+  {
     slug: "canary-trap",
     title: "Canary Trap",
     tagline:
@@ -41,8 +220,21 @@ export const PROJECTS: Project[] = [
       "A browser extension that suggests a unique, trackable email alias for every site you sign up on — using Gmail-style plus-addressing (yourname+sitename@gmail.com) — so that if spam starts showing up, you know exactly which company leaked or sold your address. Every fill is logged locally with the site, alias, first-seen date, use count, and last-used date, viewable in the popup with CSV export. Supports Chrome, Firefox, and Safari via Manifest V3.",
     technologies: ["JavaScript", "Manifest V3", "Xcode"],
     github: "https://github.com/leshyabracaglia/canary-trap",
-    links: [],
-    images: [],
+    links: [
+      {
+        label: "Chrome Extension",
+        url: "https://chromewebstore.google.com/detail/canary-trap/pcdbiafkjlgaelnekmpdemiadfgimpef",
+      },
+      {
+        label: "Firefox Extension",
+        url: "https://addons.mozilla.org/en-US/firefox/addon/canary-trap/",
+      },
+    ],
+    images: [
+      "/projects/canary-trap-promotional-image.png",
+      "/projects/canary-trap-autofill.png",
+      "/projects/canary-trap-settings.png",
+    ],
     privacyPolicy: {
       lastUpdated: LAST_UPDATED,
       intro: [
@@ -170,91 +362,6 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    slug: "cookie-refuser",
-    title: "Cookie Refuser",
-    tagline:
-      "A cross-platform browser extension that automatically denies cookie consent banners on Chrome, Firefox, and Safari.",
-    description:
-      "Inspired by the annoyance of continuing to dismiss cookie banners, Cookie Refuser is a cross-platform browser extension that automatically denies all cookie consent banners. Supports Chrome, Firefox, and Safari. Uses a three-tier detection strategy — known platform selectors, banner container scanning, and a broad fallback — along with MutationObserver for late-loading popups. Covers major consent platforms (OneTrust, Cookiebot, Quantcast, Didomi, and more) across 9 languages. Built with Manifest V3. Published on the Chrome Web Store, Firefox Add-ons, and the App Store.",
-    technologies: ["JavaScript", "Manifest V3", "Xcode"],
-    github: "https://github.com/leshyabracaglia/Cookie-refuser",
-    links: [
-      {
-        label: "Chrome Extension",
-        url: "https://chromewebstore.google.com/detail/cookie-refuser/mcglfjkmfeliffphgmihihlgehcfbkmi",
-      },
-      {
-        label: "Firefox Extension",
-        url: "https://addons.mozilla.org/en-US/firefox/addon/cookies-refuser/",
-      },
-      {
-        label: "Safari Extension",
-        url: "https://apps.apple.com/us/app/cookie-refuser/id6760318624?mt=12",
-      },
-    ],
-    images: ["/projects/cookie-refuser-promotional-image.png"],
-    privacyPolicy: {
-      lastUpdated: LAST_UPDATED,
-      intro: [
-        "Cookie Refuser runs entirely inside your browser. It does not collect, transmit, or sell any personal data, browsing history, or the content of the pages you visit.",
-      ],
-      sections: [
-        {
-          heading: "What's stored locally",
-          body: [
-            "The extension keeps a couple of small pieces of state — whether it's enabled, and a count of banners it has denied — in your browser's local extension storage. That data stays on your device and is never sent anywhere.",
-          ],
-        },
-        {
-          heading: "Why it needs broad permissions",
-          body: [
-            "Cookie Refuser requests host permissions on the pages you visit so it can detect and click cookie-consent buttons as they appear. It only looks for consent-banner elements in the moment a page loads; it doesn't read, store, or transmit page content beyond that.",
-          ],
-        },
-        {
-          heading: "No analytics, no third parties",
-          body: [
-            "There are no analytics SDKs, trackers, or ad networks bundled with this extension.",
-          ],
-        },
-        {
-          heading: "Contact",
-          body: [`Questions? Reach me at ${CONTACT_EMAIL}.`],
-        },
-      ],
-    },
-    termsOfService: {
-      lastUpdated: LAST_UPDATED,
-      intro: [
-        "Cookie Refuser is free, open-source software released under the MIT License. By installing or using it, you agree to the following.",
-      ],
-      sections: [
-        {
-          heading: "As-is software",
-          body: [
-            "The extension is provided \"as is,\" without warranty of any kind. Cookie-consent platforms change their markup often, so denial isn't guaranteed to work on every site, every time.",
-          ],
-        },
-        {
-          heading: "Source and license",
-          body: [
-            "The full source code is public on GitHub under the MIT License, which also governs your rights to use, copy, modify, and redistribute it.",
-          ],
-        },
-        {
-          heading: "Store terms",
-          body: [
-            "If you install Cookie Refuser via the Chrome Web Store, Firefox Add-ons, or the App Store, that platform's own terms also apply.",
-          ],
-        },
-        {
-          heading: "Contact",
-          body: [`Questions about these terms? Reach me at ${CONTACT_EMAIL}.`],
-        },
-      ],
-    },
-  },
-  {
     slug: "1000-rejections",
     title: "1000 Rejections",
     tagline:
@@ -272,8 +379,17 @@ export const PROJECTS: Project[] = [
       "Cursor",
     ],
     github: "https://github.com/leshyabracaglia/1000Rejections",
-    links: [],
-    images: [],
+    links: [
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/us/app/rejection-tracker/id6758589418",
+      },
+    ],
+    images: [
+      "/projects/rejection-tracker-dashboard.png",
+      "/projects/rejection-tracker-log.png",
+      "/projects/rejection-tracker-edit.png",
+    ],
     privacyPolicy: {
       lastUpdated: LAST_UPDATED,
       intro: [

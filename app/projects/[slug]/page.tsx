@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import ImageGallery from "../../components/ImageGallery";
 import { notFound } from "next/navigation";
 import Navigation from "../../components/Navigation";
 import UserCount from "../../components/UserCount";
@@ -152,19 +152,12 @@ export default async function ProjectDetail({
           </div>
 
           {project.images.length > 0 && (
-            <div className="flex gap-3 overflow-x-auto mb-4 pb-1 mt-4">
-              {project.images.map((src, i) => (
-                <Image
-                  key={i}
-                  src={src}
-                  alt={`${project.title} screenshot ${i + 1}`}
-                  width={0}
-                  height={0}
-                  sizes="(max-width: 640px) 100vw, 640px"
-                  className="flex-shrink-0 h-48 sm:h-72 w-auto max-w-full object-contain border border-[#1a4a1a]"
-                />
-              ))}
-            </div>
+            <ImageGallery
+              images={project.images}
+              title={project.title}
+              sizes="(max-width: 640px) 100vw, 640px"
+              imageClassName="h-48 sm:h-72 w-auto max-w-full object-contain border border-[#1a4a1a]"
+            />
           )}
 
           <p className="text-terminal/80 my-4 text-sm leading-relaxed">

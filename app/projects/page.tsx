@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import ImageGallery from "../components/ImageGallery";
 import UserCount from "../components/UserCount";
 import Navigation from "../components/Navigation";
 import { PROJECTS, type Project } from "../lib/projects";
@@ -78,19 +78,12 @@ function ProjectCard({
       </div>
 
       {images.length > 0 && (
-        <div className="flex gap-3 overflow-x-auto mb-4 pb-1 mt-4">
-          {images.map((src, i) => (
-            <Image
-              key={i}
-              src={src}
-              alt={`${title} screenshot ${i + 1}`}
-              width={0}
-              height={0}
-              sizes="320px"
-              className="flex-shrink-0 h-28 sm:h-32 w-auto border border-[#1a4a1a]"
-            />
-          ))}
-        </div>
+        <ImageGallery
+          images={images}
+          title={title}
+          sizes="320px"
+          imageClassName="h-28 sm:h-32 w-auto border border-[#1a4a1a]"
+        />
       )}
 
       <p className="text-terminal/80 my-4 text-sm leading-relaxed">
